@@ -8,7 +8,6 @@ router.get('/', async (req, res) => {
     } catch (error) {
         return res.status(500).json({ message: `Something unexpected happened, please report the error: ${error}` })
     }
-    
 })
 
 module.exports = router
