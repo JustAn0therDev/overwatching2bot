@@ -1,6 +1,12 @@
-const app = require("express")()
-const router = require('./router.js')
+const getOverwatch2ReleaseStatus = require('./getOverwatch2ReleaseStatus.js')
 
-app.use('/ow2status', router)
+async function tweetOverwatch2Status() {
+    try {
+        const releaseStatus = await getOverwatch2ReleaseStatus();
+        console.log(releaseStatus);
+    } catch (error) {
+        console.log(`Something unexpected has happened during the execution of the program. Error: ${error}`);
+    }
+}
 
-app.listen(9000);
+tweetOverwatch2Status();
