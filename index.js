@@ -1,6 +1,7 @@
+const axios = require('axios').default;
 const getOverwatch2ReleaseStatus = require('./getOverwatch2ReleaseStatus.js')
 
-async function tweetOverwatch2Status() {
+async function getOverwatch2StatusFromWebDriver() {
     try {
         const releaseStatus = await getOverwatch2ReleaseStatus();
         console.log(releaseStatus);
@@ -9,4 +10,15 @@ async function tweetOverwatch2Status() {
     }
 }
 
-tweetOverwatch2Status();
+async function tweetOverwatch2ReleaseStatus(releaseStatus) {
+    const twitterApiUrl = 'https://api.twitter.com/1.1/statuses/update.json';
+
+    // TODO: the authentication info will be in a "git-ignored" JSON file.
+    axios.post(twitterApiUrl, { status: releaseStatus }, {
+        headers: {
+
+        }
+    });
+}
+
+getOverwatch2StatusFromWebDriver();
