@@ -7,12 +7,14 @@ module.exports = async function getNextPhrase() {
     const lastTweetedPhraseObject = phraseList.phrases.find(f => f.lastTweeted);
     const indexOflastTweetedPhraseObject = phraseList.phrases.indexOf(lastTweetedPhraseObject);
 
-    if (indexOflastTweetedPhraseObject + 1 > phraseList.phrases.length - 1)
+    if (indexOflastTweetedPhraseObject == -1 || indexOflastTweetedPhraseObject + 1 > phraseList.phrases.length - 1)
         nextPhraseObject = phraseList.phrases[0];
     else
         nextPhraseObject = phraseList.phrases[indexOflastTweetedPhraseObject + 1];
 
-    lastTweetedPhraseObject.lastTweeted = false;
+    if (lastTweetedPhraseObject)
+        lastTweetedPhraseObject.lastTweeted = false;
+        
     nextPhraseObject.lastTweeted = true;
 
     fs.writeFileSync(`${__dirname}\\phrase_list.json`, JSON.stringify(phraseList), { encoding: 'utf-8' });
