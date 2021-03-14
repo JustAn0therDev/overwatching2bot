@@ -1,5 +1,4 @@
 const fs = require('fs');
-const path = require('path');
 const phraseList = require('./phrase_list.json');
 
 module.exports = async function getNextPhrase() {

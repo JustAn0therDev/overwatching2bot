@@ -11,14 +11,8 @@ async function getOverwatch2StatusFromWebDriver() {
         
         await tweetOverwatch2ReleaseStatus(phrase);
     } catch (error) {
-        console.log(`Something unexpected happened during the execution of this program. ${error}`);
+        console.log(`Something unexpected happened during the execution of the program. ${error}`);
     }
 }
 
-/* 
- * There is no way to wait for the whole process to complete since there is 
- * no top-level await. So for this, we have to just call a "void" function at let it
- * call the rest of the workflow for getting the information and tweeting only by awaiting
- * promises
- */ 
-getOverwatch2StatusFromWebDriver(); 
+getOverwatch2StatusFromWebDriver();

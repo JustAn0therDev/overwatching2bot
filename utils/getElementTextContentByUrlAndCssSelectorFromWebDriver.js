@@ -12,7 +12,8 @@ module.exports = async function getElementTextContentByUrlAndCssSelectorFromWebD
     const foundElement = await driver.findElement(By.css(cssSelector));
 
     if (!foundElement)
-        // returning a falsy value; that way the client code knows the element and/or content wasn't found
+        // returning a falsy value; 
+        // that way the client code knows the element and/or content wasn't found
         return '';
 
     return await foundElement.getText();
