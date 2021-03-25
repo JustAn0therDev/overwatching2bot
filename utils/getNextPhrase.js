@@ -1,5 +1,5 @@
-const phraseList = require('./phrase_list.json');
 const { writeFile } = require('fs/promises');
+const phraseList = require('./phrase_list.json');
 
 module.exports = async function getNextPhrase() {
     let nextPhraseObject;
@@ -15,7 +15,6 @@ module.exports = async function getNextPhrase() {
         lastTweetedPhraseObject.lastTweeted = false;
         
     nextPhraseObject.lastTweeted = true;
-
 
     // creating a byte array from a buffer
     const data = new Uint8Array(Buffer.from(JSON.stringify(phraseList)));

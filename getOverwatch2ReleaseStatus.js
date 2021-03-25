@@ -9,6 +9,6 @@ module.exports = async function getOverwatch2ReleaseStatus() {
 
     if (elementTextContentWithOverwatch2Status.toLowerCase().includes('we have not announced a release date'))
         return "Overwatch 2 does not have a release date yet.";
-    
+
     return `Info has finally been updated! It is now: ${elementTextContentWithOverwatch2Status}`;
 }
